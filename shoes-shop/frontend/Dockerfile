@@ -1,12 +1,12 @@
-FROM node:18.18
+FROM node:18.19 as builder
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY shoes-frontend/package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY shoes-frontend ./
 
 RUN npm run build --prod
 
