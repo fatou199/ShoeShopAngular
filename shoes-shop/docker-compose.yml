@@ -1,4 +1,3 @@
-version: '3.8'
 services: 
   frontend:
     build: 
@@ -19,7 +18,7 @@ services:
       - '3000:3000'
     environment:
       DB_HOST: mongodb      
-      DB_USER: admin        
+      DB_USER: fatou        
       DB_PASSWORD: root     
       DB_NAME: shoes_shop 
     networks:
@@ -34,6 +33,7 @@ services:
     environment: 
       MONGO_INITDB_ROOT_USERNAME: fatou
       MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: shoes_shop
     volumes:
       - mongo_data:/data/db
     networks:
