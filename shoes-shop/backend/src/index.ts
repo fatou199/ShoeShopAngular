@@ -1,15 +1,24 @@
 import express, { Request, Response } from 'express';
 require('dotenv').config()
-import connectDB from '../connectToDatabase';
+import connectDB from './connectToDB';
+const cors = require('cors');
 
 const app = express()
 const port = process.env.PORT
+app.use(express.json())
+
+app.use(cors({
+  origin: 'http://localhost:4200'
+}));
 
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello world')
 })
 
+app.get('/api/home', (req: Request, res: Response) => {
+  res.json({ message: 'Helloeee from the backend!' });
+})
 
 const startServer = async () => {
   try {

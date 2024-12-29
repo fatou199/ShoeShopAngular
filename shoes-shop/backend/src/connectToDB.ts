@@ -6,7 +6,7 @@ const dbPassword = process.env.DB_PASSWORD
 const dbName = process.env.DB_NAME
 
 // en local
-//const uri = `${dbHost}://${dbUser}:${dbPassword}@localhost:27017/${dbName}`;
+// const uri = `${dbHost}://${dbUser}:${dbPassword}@localhost:27017/${dbName}`;
 
 // dans docker
 const uri = `${dbHost}://${dbUser}:${dbPassword}@${dbHost}:27017/${dbName}?authSource=admin`;
