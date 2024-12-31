@@ -23,7 +23,7 @@ const register = async (req: Request, res: Response) => {
             return res.status(400).json("Cette email existe déja !")
         }
 
-        const role = await User.countDocuments() === 0 ? 'admin' : 'user';
+        const role = await User.countDocuments() === 0 ? 'admin' : 'client';
 
         const newUser = new User({
             username,
