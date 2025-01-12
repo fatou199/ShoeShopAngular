@@ -35,9 +35,9 @@ services:
     ports: 
       - '27017:27017'
     environment: 
-      MONGO_INITDB_ROOT_USERNAME: fatou
-      MONGO_INITDB_ROOT_PASSWORD: root
-      MONGO_INITDB_DATABASE: shoes_shop
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_ROOT_DATABASE}
     volumes:
       - mongo_data:/data/db
     networks:
