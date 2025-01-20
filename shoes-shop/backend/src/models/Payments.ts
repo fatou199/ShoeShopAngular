@@ -5,8 +5,8 @@ const PaymentSchema = new mongoose.Schema({
         ref: "User",
         required: true
     },
-    status: { type: String, required: true },
-    methode_paiement: { type: String, required: true },
+    status: { type: String, enum: ["en attente", "payé", "annulé"], required: true},
+    methode_paiement: { type: String , enum: ['paypal', 'carte bancaire'], required: true },
     num_transaction: { type: Number, required: true },
     date_paiement: { type: Date, required: true },
     montant_total: { type: Number, required: true },

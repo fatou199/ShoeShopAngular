@@ -13,10 +13,10 @@ const OrderSchema = new mongoose.Schema ({
     num_commande: { type: String, required: true },
     status: { type: String, enum: ["en attente", "traitée", "annulée"], default: "en attente",required: true },
     adresse_livraison: { type: String, required: true },
-    moyen_paiement: { type: String, enum: ["carte bancaire", "paypal", "espèces"], required: true },
+    moyen_paiement: { type: String, enum: ["carte bancaire", "paypal"], required: true },
     total_commande: { type: Number, required: true },
     date_commande: { type: Date, required: true },
-    userId: { type: Number, required: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     detail_commande : [OrderDetailSchema],
 })
 
