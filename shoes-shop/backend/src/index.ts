@@ -4,6 +4,7 @@ import connectDB from './connectToDB';
 const cors = require('cors');
 import authRoutes from './routes/auth.routes';
 import userRoutes from './routes/user.routes';
+import productRoutes from './routes/products.routes';
 
 
 const app = express()
@@ -23,8 +24,9 @@ app.get('/api/home', (req: Request, res: Response) => {
   res.json({ message: 'Helloe from the backend!' });
 })
 
-app.use('/api', authRoutes)
-app.use('/api', userRoutes)
+app.use('', authRoutes);
+app.use('', userRoutes);
+app.use('', productRoutes);
 
 const startServer = async () => {
   try {
