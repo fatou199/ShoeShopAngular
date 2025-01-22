@@ -9,6 +9,6 @@ const ProductSchema = new mongoose.Schema({
     categories: { type: String, enum: ['homme', 'femme'], required: true },
 })
 
-const Products = mongoose.model("Shoes", ProductSchema);
+const Products = mongoose.model("Products", ProductSchema);
 
 export default Products;
