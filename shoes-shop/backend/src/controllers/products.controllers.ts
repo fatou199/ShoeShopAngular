@@ -37,10 +37,10 @@ const getProducts = async (req: Request, res: Response) => {
 
 const addProducts = async (req: Request, res: Response) => {
     // recuperation des données du produit
-    const { nom_shoe, image, taille, prix, quantiteStock, categories } = req.body
+    const { nom_shoe, image, taille, prix, stock, categories } = req.body
 
     // verification des données
-    if (!nom_shoe || !image || !taille || !prix || !quantiteStock || !categories) {
+    if (!nom_shoe || !image || !taille || !prix || !stock || !categories) {
         return res.status(400).json({ message: "Tout les champs sont requis" })
     }
 
@@ -52,7 +52,7 @@ const addProducts = async (req: Request, res: Response) => {
             image,
             taille,
             prix,
-            quantiteStock, 
+            stock, 
             categories
         })
         // sauvegarde du produit
@@ -68,7 +68,7 @@ const addProducts = async (req: Request, res: Response) => {
 
 const updateProducts = async (req: Request, res: Response) => {
     const { id } = req.params;
-    const { nom_shoe, image, taille, prix, quantiteStock, categories } = req.body;
+    const { nom_shoe, image, taille, prix, stock, categories } = req.body;
 
     try {
 
@@ -83,7 +83,7 @@ const updateProducts = async (req: Request, res: Response) => {
         // mise à jour du produit
         const updateproducts = await Products.findByIdAndUpdate(
             id, 
-            { nom_shoe, image, taille, prix, quantiteStock, categories },
+            { nom_shoe, image, taille, prix, stock, categories },
             { new: true } // Cette option retourne le document mis à jour
         );
 
