@@ -5,6 +5,7 @@ const cors = require('cors');
 import authRoutes from './routes/auth.routes';
 import userRoutes from './routes/user.routes';
 import productRoutes from './routes/products.routes';
+import panierRoutes from './routes/paniers.routes';
 
 
 const app = express()
@@ -27,6 +28,7 @@ app.get('/api/home', (req: Request, res: Response) => {
 app.use('', authRoutes);
 app.use('', userRoutes);
 app.use('', productRoutes);
+app.use('', panierRoutes);
 
 const startServer = async () => {
   try {
