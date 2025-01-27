@@ -6,6 +6,7 @@ import authRoutes from './routes/auth.routes';
 import userRoutes from './routes/user.routes';
 import productRoutes from './routes/products.routes';
 import panierRoutes from './routes/paniers.routes';
+import orderRoutes from './routes/orders.routes';
 
 
 const app = express()
@@ -29,6 +30,7 @@ app.use('', authRoutes);
 app.use('', userRoutes);
 app.use('', productRoutes);
 app.use('', panierRoutes);
+app.use('', orderRoutes);
 
 const startServer = async () => {
   try {
