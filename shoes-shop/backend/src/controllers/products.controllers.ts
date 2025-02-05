@@ -7,7 +7,8 @@ const getAllProducts = async (req: Request, res: Response) => {
     try {
         // recuperation de tout les produits
         const products = await Products.find()
-        return res.status(200).json(products)
+        const message = 'Voici tout les produits trouvée:';
+        return res.status(200).json({message, products})
     } catch (error: any) {
         // si une erreur survient
         const message = "Erreur lors de la récupération des produits";
@@ -27,7 +28,8 @@ const getProducts = async (req: Request, res: Response) => {
             return res.status(404).json({ error: 'Aucun produit trouvé' });
         }
         // si le produit existe
-        return res.status(200).json(oneProduct)
+        const message = 'Produit trouvé';
+        return res.status(200).json({ message, oneProduct })
     } catch (error: any) {
         // si une erreur survient
         const message = "Erreur lors de la récupération du produit";
